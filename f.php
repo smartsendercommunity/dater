@@ -1,12 +1,15 @@
 <?php
 // ver 1.2 - 01.07.20
-// Serhii Halaktionoiv
+// Serhii Halaktionoiv t.me/dmaSIIbiz
+// upd - 08.11.21
+// Petro Stoliarchuk t.me/mufik
 
 ini_set('max_execution_time', '1700');
 set_time_limit(1700);
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
+header('Content-Type: application/json');
 http_response_code(200);
 
 //date_default_timezone_set('Europe/Moscow');
