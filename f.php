@@ -55,6 +55,7 @@ $date_rus['d_dn1']=$dn_rus[intval(date("w",$str))];
 $date_rus['d_dn2']=$dn_rus2[intval(date("w",$str))];
 $date_rus['d_unix']=$str;
 $date_rus['d_calendar']=date("Ymd", $str);
+$date_rus["d_google_calendat"]=date("Y-m-d H:i:s", $str);
 
     return $date_rus;
 }
@@ -86,6 +87,7 @@ function date2lang($str, $lang){ /*Вывод даты по-русски*/
         $date_rus['d_dn2']=$dn2[intval(date("w",$str))];
         $date_rus['d_unix']=$str;
         $date_rus['d_calendar']=date("Ymd", $str);
+        $date_rus["d_google_calendat"]=date("Y-m-d H:i:s", $str);
     } else {
         $date_rus['error'] = "lang not found";
     }
