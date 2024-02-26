@@ -37,25 +37,28 @@ $date_rus=[];
     static $dn_rus=array("воскресенье","понедельник","вторник","среду","четверг","пятницу","субботу");
     static $dn_rus2=array("воскресенье","понедельник","вторник","среда","четверг","пятница","суббота");
     $str = strtotime($str);
-$date_rus['d_dt']=date("G:i:s  d.m.Y", $str);
-$date_rus['d_tz']=date("G:i:s T d.m.Y", $str);
-$date_rus['d_full']=$dn_rus[intval(date("w",$str))].', '.date("j",$str).' '.$month_rus[intval(date("m",$str)-1)].' '.date("Y",$str);
-$date_rus['d_dnm']=$dn_rus[intval(date("w",$str))].', '.date("j",$str).' '.$month_rus[intval(date("m",$str)-1)];
-$date_rus['d_dm']=date("j",$str).' '.$month_rus[intval(date("m",$str)-1)];
-$date_rus['d_dmy_dot']=date("d.m.Y",$str);
-$date_rus['d_dmy_tire']=date("d-m-Y",$str);
-$date_rus['d_ymd_dot']=date("Y.m.d",$str);
-$date_rus['d_ymd_tire']=date("Y-m-d",$str);
-$date_rus['d_y']=date("Y",$str);
-$date_rus['d_m']=date("m",$str);
-$date_rus['d_mn1']=$month_rus[intval(date("m",$str)-1)];
-$date_rus['d_mn2']=$month_rus2[intval(date("m",$str)-1)];
-$date_rus['d_d']=date("j",$str);
-$date_rus['d_dn1']=$dn_rus[intval(date("w",$str))];
-$date_rus['d_dn2']=$dn_rus2[intval(date("w",$str))];
-$date_rus['d_unix']=$str;
-$date_rus['d_calendar']=date("Ymd", $str);
-$date_rus["d_google_calendat"]=date("Y-m-d H:i:s", $str);
+    $date_rus['d_dt']=date("G:i:s  d.m.Y", $str);
+    $date_rus['d_tz']=date("G:i:s T d.m.Y", $str);
+    $date_rus['d_full']=$dn_rus[intval(date("w",$str))].', '.date("j",$str).' '.$month_rus[intval(date("m",$str)-1)].' '.date("Y",$str);
+    $date_rus['d_dnm']=$dn_rus[intval(date("w",$str))].', '.date("j",$str).' '.$month_rus[intval(date("m",$str)-1)];
+    $date_rus['d_dm']=date("j",$str).' '.$month_rus[intval(date("m",$str)-1)];
+    $date_rus['d_dmy_dot']=date("d.m.Y",$str);
+    $date_rus['d_dmy_tire']=date("d-m-Y",$str);
+    $date_rus['d_ymd_dot']=date("Y.m.d",$str);
+    $date_rus['d_ymd_tire']=date("Y-m-d",$str);
+    $date_rus['d_y']=date("Y",$str);
+    $date_rus['d_m']=date("m",$str);
+    $date_rus['d_mn1']=$month_rus[intval(date("m",$str)-1)];
+    $date_rus['d_mn2']=$month_rus2[intval(date("m",$str)-1)];
+    $date_rus['d_d']=date("j",$str);
+    $date_rus['d_dn1']=$dn_rus[intval(date("w",$str))];
+    $date_rus['d_dn2']=$dn_rus2[intval(date("w",$str))];
+    $date_rus['d_unix']=$str;
+    $date_rus['d_calendar']=date("Ymd", $str);
+    $date_rus["d_google_calendat"]=date("Y-m-d H:i:s", $str);
+    if ($_REQUEST["format"] != NULL) {
+        $date_rus["format"] = date($_REQUEST["format"], $str);
+    }
 
     return $date_rus;
 }
@@ -88,6 +91,9 @@ function date2lang($str, $lang){ /*Вывод даты по-русски*/
         $date_rus['d_unix']=$str;
         $date_rus['d_calendar']=date("Ymd", $str);
         $date_rus["d_google_calendat"]=date("Y-m-d H:i:s", $str);
+        if ($_REQUEST["format"] != NULL) {
+	    $date_rus["format"] = date($_REQUEST["format"], $str);
+        }
     } else {
         $date_rus['error'] = "lang not found";
     }
