@@ -56,6 +56,7 @@ $date_rus=[];
     $date_rus['d_unix']=$str;
     $date_rus['d_calendar']=date("Ymd", $str);
     $date_rus["d_google_calendat"]=date("Y-m-d H:i:s", $str);
+    $date_rus["iso_date"]=date("c", $str);
     if ($_REQUEST["format"] != NULL) {
         $date_rus["format"] = date($_REQUEST["format"], $str);
     }
@@ -91,6 +92,7 @@ function date2lang($str, $lang){ /*Вывод даты по-русски*/
         $date_rus['d_unix']=$str;
         $date_rus['d_calendar']=date("Ymd", $str);
         $date_rus["d_google_calendat"]=date("Y-m-d H:i:s", $str);
+        $date_rus["iso_date"]=date("c", $str);
         if ($_REQUEST["format"] != NULL) {
 	    $date_rus["format"] = date($_REQUEST["format"], $str);
         }
