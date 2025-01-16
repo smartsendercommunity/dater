@@ -157,7 +157,7 @@ if (array_key_exists('diff_d', $reqv)){
     $diff[0]=date2rus($diff[0])['d_dmy_dot'];
     $diff[1]=date2rus($diff[1])['d_dmy_dot'];
     $res['diff']=date_diff(new DateTime($diff[0]), new DateTime($diff[1]))->days;
-    if (strtotime($diff[0]) < strtotime($diff[1]) {
+    if (strtotime($diff[0]) < strtotime($diff[1])) {
 	$res["diff"] = 0 - $res["diff"];
     }
   $res=json_encode($res);
